@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunnelSpy - Gestión de Embudos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🚀</span>
+                <h1>Funnel<span>Spy</span></h1>
+            </div>
+            <button id="add-funnel-btn" class="btn btn-primary">
+                <span class="icon">+</span> Nuevo Embudo
+            </button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="dashboard-header">
+            <h2>Gestión de Embudos Espiados</h2>
+            <p>Monitorea y organiza los embudos de tu competencia en tiempo real.</p>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span id="total-funnels">0</span>
+                <label>Total Embudos</label>
+            </div>
+            <div class="stat-card">
+                <span id="active-funnels">0</span>
+                <label>En Marcha</label>
+            </div>
+            <div class="stat-card">
+                <span id="captured-funnels">0</span>
+                <label>Capturados</label>
+            </div>
+        </section>
+
+        <section class="funnel-grid" id="funnel-container">
+            <!-- Funnel cards will be injected here -->
+            <div class="empty-state" id="empty-state">
+                <p>No hay embudos registrados. ¡Empieza a espiar ahora!</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Form -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Añadir Nuevo Embudo</h3>
+                <button id="close-modal" class="btn-close">&times;</button>
+            </div>
+            <form id="funnel-form">
+                <input type="hidden" id="funnel-id">
+                <div class="form-group">
+                    <label for="funnel-name">Nombre del Embudo</label>
+                    <input type="text" id="funnel-name" placeholder="Ej: Webinar de Inversión" required>
+                </div>
+                <div class="form-group">
+                    <label for="funnel-url">URL del Embudo</label>
+                    <input type="url" id="funnel-url" placeholder="https://..." required>
+                </div>
+                <div class="form-group">
+                    <label for="funnel-niche">Nicho / Categoría</label>
+                    <input type="text" id="funnel-niche" placeholder="Ej: Real Estate, Fitness...">
+                </div>
+                <div class="form-group">
+                    <label for="funnel-status">Estado Initial</label>
+                    <select id="funnel-status">
+                        <option value="Capturado">Capturado 📸</option>
+                        <option value="Analizando">Analizando 🔍</option>
+                        <option value="En Construcción">En Construcción 🏗️</option>
+                        <option value="Lanzado">Lanzado 🚀</option>
+                        <option value="En Pausa">En Pausa ⏸️</option>
+                        <option value="Escalando">Escalando 📈</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-submit">Guardar Embudo</button>
+                    <button type="button" id="cancel-btn" class="btn btn-secondary">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
